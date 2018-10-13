@@ -11,7 +11,7 @@
 	(/ (+ x y) 3))
 
 (define (good-enough? guess x)
-	(< (abs (- (* guess guess guess) x)) 0.001))
+	(< (abs (- (* guess guess guess) x)) 0.000001))
 
 (define (cube x)
 	(cube-iter 1.0 x))
