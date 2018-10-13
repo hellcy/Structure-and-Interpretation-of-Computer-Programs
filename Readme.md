@@ -7,3 +7,6 @@ Scheme is installed from this website: https://stackoverflow.com/questions/12322
 Scheme can also be run from Command Line.
 
 Another great repository with almost all exercises answers is provided here: https://github.com/numbbbbb/sicp
+
+Chapter 1
+An expanation about normal order and applicative order evaluation is here: https://stackoverflow.com/questions/16036139/seek-for-some-explanation-on-sicp-exercise-1-5 This is regard to exercise 1-5.
