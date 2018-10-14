@@ -1,0 +1,32 @@
+(define (pascal n)
+	(define (cal-number x y)
+		(cond ((= x 1) 1)
+					((= y 1) 1)
+					((= x y) 1)
+					(else (+ (cal-number (- x 1) (- y 1)) (cal-number x (- y 1))))
+		)
+	)
+	(define (pascal-line now total)
+		(define (display-line-internal now total)
+			(display (cal-number now total))
+			(cond ((< now total) (display-line-internal (+ now 1) total))
+			)
+		)
+		(display-line-internal 1 now)
+		(display "\n")
+		(cond ((< now total) (pascal-line (+ now 1) total)))
+	)
+	(pascal-line 1 n)
+)
+(pascal 5)
+
+;take the row and column numbers as arguments, and return the value of the element in that position.
+;The two values to sum in order to calculate Pascal(row, column) are always going to be the value in the previous row and same column, Pascal(row-1, column), 
+;and the value in the previous row and previous column, Pascal(row-1, column-1).
+(define (pascalTwo row col)
+   (cond ((< row col) #f)
+         ((or (= 0 col) (= row col)) 1)
+         (else (+ (pascalTwo (- row 1) col)
+                  (pascalTwo (- row 1) (- col 1))))))
+
+(pascalTwo 5 3)
