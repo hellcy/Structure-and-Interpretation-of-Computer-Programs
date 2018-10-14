@@ -1,4 +1,20 @@
-(define size 2)
-(+ size 5)
+(define (smallest-divisor n)
+   (find-divisor n 2))
 
-(= 3 4)
+(define (find-divisor n test-divisor)
+   (cond ((> (square test-divisor) n) n)
+         ((divides? test-divisor n) test-divisor)
+         (else (find-divisor n (+ test-divisor 1)))))
+
+(define (divides? a b)
+   (= (remainder b a) 0))
+
+(define (square x)
+   (* x x))
+
+(define (prime? n)
+   (= n (smallest-divisor n)))
+
+(time
+  (display (prime? 10000000019))
+  (newline))
